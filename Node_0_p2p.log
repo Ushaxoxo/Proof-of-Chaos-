@@ -1,0 +1,176 @@
+2024-11-23 15:52:21 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2113116282.400000_0.0
+2024-11-23 15:52:21 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2113116282.400000_0.0"}}
+2024-11-23 15:55:27 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1952152118.600000_0.0
+2024-11-23 15:55:27 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1952152118.600000_0.0"}}
+2024-11-23 16:01:10 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2469954487.400000_0.0
+2024-11-23 16:01:10 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2469954487.400000_0.0"}}
+2024-11-23 16:04:36 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2859642697.200000_0.0
+2024-11-23 16:04:36 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2859642697.200000_0.0"}}
+2024-11-23 16:04:58 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2564818808.800000_0.0
+2024-11-23 16:04:58 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2564818808.800000_0.0"}}
+2024-11-23 16:24:54 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2783349464.800000_0.0
+2024-11-23 16:24:54 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2783349464.800000_0.0"}}
+2024-11-23 16:25:32 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1894365754.400000_0.0
+2024-11-23 16:25:32 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1894365754.400000_0.0"}}
+2024-11-23 16:27:09 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2744035180.200000_0.0
+2024-11-23 16:27:09 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2744035180.200000_0.0"}}
+2024-11-23 16:27:11 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2710823588.600000_0.0
+2024-11-23 16:27:11 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2710823588.600000_0.0"}}
+2024-11-23 16:27:12 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1903494358.800000_0.0
+2024-11-23 16:27:12 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1903494358.800000_0.0"}}
+2024-11-23 16:27:13 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1560948034.000000_0.0
+2024-11-23 16:27:13 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1560948034.000000_0.0"}}
+2024-11-23 16:27:13 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 3556024977.600000_0.0
+2024-11-23 16:27:13 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "3556024977.600000_0.0"}}
+2024-11-23 16:27:14 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1900348116.800000_0.0
+2024-11-23 16:27:14 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1900348116.800000_0.0"}}
+2024-11-23 16:27:15 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2428307866.400000_0.0
+2024-11-23 16:27:15 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2428307866.400000_0.0"}}
+2024-11-23 16:27:15 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1440221422.800000_0.0
+2024-11-23 16:27:15 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1440221422.800000_0.0"}}
+2024-11-23 16:27:16 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2329568278.800000_0.0
+2024-11-23 16:27:16 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2329568278.800000_0.0"}}
+2024-11-23 16:27:23 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1859467476.600000_0.0
+2024-11-23 16:27:23 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1859467476.600000_0.0"}}
+2024-11-23 16:27:24 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2399769101.600000_0.0
+2024-11-23 16:27:24 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2399769101.600000_0.0"}}
+2024-11-23 16:27:25 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1930997100.400000_0.0
+2024-11-23 16:27:25 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1930997100.400000_0.0"}}
+2024-11-23 16:27:26 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1558048285.000000_0.0
+2024-11-23 16:27:26 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1558048285.000000_0.0"}}
+2024-11-23 16:27:27 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 3132632755.200000_0.0
+2024-11-23 16:27:27 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "3132632755.200000_0.0"}}
+2024-11-23 16:27:28 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2578337204.200000_0.0
+2024-11-23 16:27:28 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2578337204.200000_0.0"}}
+2024-11-23 16:27:29 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2400969851.600000_0.0
+2024-11-23 16:27:29 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2400969851.600000_0.0"}}
+2024-11-23 16:27:30 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1621620414.000000_0.0
+2024-11-23 16:27:30 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1621620414.000000_0.0"}}
+2024-11-23 16:27:30 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1534071959.200000_0.0
+2024-11-23 16:27:30 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1534071959.200000_0.0"}}
+2024-11-23 16:27:31 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2139240583.400000_0.0
+2024-11-23 16:27:31 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2139240583.400000_0.0"}}
+2024-11-23 16:27:32 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1333758655.800000_0.0
+2024-11-23 16:27:32 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1333758655.800000_0.0"}}
+2024-11-23 16:27:32 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2604384821.400000_0.0
+2024-11-23 16:27:32 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2604384821.400000_0.0"}}
+2024-11-23 16:27:33 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1497015916.600000_0.0
+2024-11-23 16:27:33 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1497015916.600000_0.0"}}
+2024-11-23 16:27:33 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2876998807.200000_0.0
+2024-11-23 16:27:33 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2876998807.200000_0.0"}}
+2024-11-23 16:27:34 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2375347714.600000_0.0
+2024-11-23 16:27:34 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2375347714.600000_0.0"}}
+2024-11-23 16:27:34 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 3175398494.200000_0.0
+2024-11-23 16:27:34 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "3175398494.200000_0.0"}}
+2024-11-24 16:46:57 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1391060277.000000_0.0
+2024-11-24 16:46:57 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1391060277.000000_0.0"}}
+2024-11-26 08:38:37 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1917788774.200000_0.0
+2024-11-26 08:38:37 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1917788774.200000_0.0"}}
+2024-11-26 09:02:19 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1681573812.200000_0.0
+2024-11-26 09:02:19 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1681573812.200000_0.0"}}
+2024-11-26 09:06:55 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1674074220.200000
+2024-11-26 09:06:55 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1674074220.200000"}}
+2024-11-26 09:13:51 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1998793832.000000
+2024-11-26 09:13:51 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1998793832.000000"}}
+2024-11-26 09:14:05 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2467593863.000000
+2024-11-26 09:14:05 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2467593863.000000"}}
+2024-11-26 09:18:32 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1669977117.800000
+2024-11-26 09:18:32 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1669977117.800000"}}
+2024-11-26 09:22:48 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2275389753.200000
+2024-11-26 09:22:48 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2275389753.200000"}}
+2024-11-26 09:23:16 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2242443872.200000
+2024-11-26 09:23:16 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2242443872.200000"}}
+2024-11-26 09:25:53 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2364665503.200000
+2024-11-26 09:25:53 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2364665503.200000"}}
+2024-11-26 09:26:03 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2557219824.000000
+2024-11-26 09:26:03 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2557219824.000000"}}
+2024-11-26 09:27:44 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2162937533.000000
+2024-11-26 09:27:44 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2162937533.000000"}}
+2024-11-26 09:28:47 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2590978504.000000
+2024-11-26 09:28:47 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2590978504.000000"}}
+2024-11-26 09:30:06 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2243078016.200000
+2024-11-26 09:30:06 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2243078016.200000"}}
+2024-11-26 09:32:33 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2560872440.600000
+2024-11-26 09:32:33 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2560872440.600000"}}
+2024-11-26 09:35:35 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2221684544.600000
+2024-11-26 09:35:35 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2221684544.600000"}}
+2024-11-26 09:36:45 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2378566450.000000
+2024-11-26 09:36:45 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2378566450.000000"}}
+2024-11-26 09:36:54 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2806443816.200000
+2024-11-26 09:36:54 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2806443816.200000"}}
+2024-11-26 09:37:03 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1647921264.000000
+2024-11-26 09:37:03 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1647921264.000000"}}
+2024-11-26 09:37:17 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2063495190.800000
+2024-11-26 09:37:17 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2063495190.800000"}}
+2024-11-26 09:37:21 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2530353674.600000
+2024-11-26 09:37:21 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2530353674.600000"}}
+2024-11-26 09:37:24 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1251866059.600000
+2024-11-26 09:37:24 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1251866059.600000"}}
+2024-11-26 09:37:28 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2150662285.200000
+2024-11-26 09:37:28 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2150662285.200000"}}
+2024-11-26 09:37:38 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 3422111429.800000
+2024-11-26 09:37:38 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "3422111429.800000"}}
+2024-11-26 09:37:43 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2158778445.600000
+2024-11-26 09:37:43 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2158778445.600000"}}
+2024-11-26 09:37:45 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2345648570.200000
+2024-11-26 09:37:45 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2345648570.200000"}}
+2024-11-26 09:37:48 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2230917410.600000
+2024-11-26 09:37:48 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2230917410.600000"}}
+2024-11-26 09:37:50 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1743586280.000000
+2024-11-26 09:37:50 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1743586280.000000"}}
+2024-11-26 09:37:54 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 3222100222.400000
+2024-11-26 09:37:54 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "3222100222.400000"}}
+2024-11-26 09:47:23 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1022849159.600000
+2024-11-26 09:47:23 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1022849159.600000"}}
+2024-11-26 09:47:27 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 3016671560.800000
+2024-11-26 09:47:27 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "3016671560.800000"}}
+2024-11-26 10:13:59 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 3114944556.400000
+2024-11-26 10:13:59 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "3114944556.400000"}}
+2024-11-26 10:14:04 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1840725013.800000
+2024-11-26 10:14:04 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1840725013.800000"}}
+2024-11-26 11:18:43 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2955134270.000000
+2024-11-26 11:18:43 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2955134270.000000"}}
+2024-11-26 11:18:49 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1890848097.400000
+2024-11-26 11:18:49 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1890848097.400000"}}
+2024-11-26 11:21:44 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1753767573.400000
+2024-11-26 11:21:44 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1753767573.400000"}}
+2024-11-26 11:33:46 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2491308362.200000
+2024-11-26 11:33:46 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2491308362.200000"}}
+2024-11-26 11:33:51 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 993504800.000000
+2024-11-26 11:33:51 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "993504800.000000"}}
+2024-11-26 11:35:26 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2238738132.200000
+2024-11-26 11:35:26 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2238738132.200000"}}
+2024-11-26 11:35:38 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2968780328.600000
+2024-11-26 11:35:38 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2968780328.600000"}}
+2024-11-26 11:44:35 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1357911472.750000
+2024-11-26 11:44:35 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1357911472.750000"}}
+2024-11-26 11:54:28 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2920550064.500000
+2024-11-26 11:54:28 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2920550064.500000"}}
+2024-11-26 11:54:35 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 3566001483.750000
+2024-11-26 11:54:35 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "3566001483.750000"}}
+2024-11-26 11:54:45 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2364667578.750000
+2024-11-26 11:54:45 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2364667578.750000"}}
+2024-11-26 11:55:33 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1395527480.500000
+2024-11-26 11:55:33 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1395527480.500000"}}
+2024-11-26 11:55:39 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 3072766634.500000
+2024-11-26 11:55:39 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "3072766634.500000"}}
+2024-11-26 12:01:50 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2405818081.750000
+2024-11-26 12:01:50 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2405818081.750000"}}
+2024-11-26 12:01:54 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1511258282.000000
+2024-11-26 12:01:54 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1511258282.000000"}}
+2024-11-26 12:03:44 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 3074741847.750000
+2024-11-26 12:03:44 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "3074741847.750000"}}
+2024-11-26 12:04:29 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 1841022409.500000
+2024-11-26 12:04:29 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "1841022409.500000"}}
+2024-11-26 12:13:05 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2116111169.250000
+2024-11-26 12:13:05 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2116111169.250000"}}
+2024-11-26 12:13:11 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2262112186.000000
+2024-11-26 12:13:11 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2262112186.000000"}}
+2024-11-26 12:14:02 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2004595974.000000
+2024-11-26 12:14:02 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2004595974.000000"}}
+2024-11-26 12:17:43 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2111498917.000000
+2024-11-26 12:17:43 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2111498917.000000"}}
+2024-11-28 09:40:08 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 3097849451.000000
+2024-11-28 09:40:08 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "3097849451.000000"}}
+2024-11-28 09:40:15 - P2P_Node_0 - INFO - [Node_0] Broadcasting aggregated entropy: 2314604434.000000
+2024-11-28 09:40:15 - P2P_Node_0 - INFO - [Node_0] Broadcasting message: {"type": "broadcast_entropy", "payload": {"aggregated_entropy": "2314604434.000000"}}

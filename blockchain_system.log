@@ -1,0 +1,109 @@
+2024-11-28 09:40:15 - BlockchainSystem - INFO - === Starting Blockchain System ===
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Initializing Blockchain...
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Genesis Block Created: Block(Index: 0, Hash: 93b02ade47e3ff1045addcde1ad21e06b367cec73390b057e6d3724e0d19fe9e, Previous Hash: 0, Transactions: [], Entropy: 0, Timestamp: 1732767015.522741)
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Creating Nodes...
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Created 5 nodes: ['Node_0', 'Node_1', 'Node_2', 'Node_3', 'Node_4']
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Node_0 is set as the initial leader.
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Generating and sending entropy for all nodes...
+2024-11-28 09:40:15 - BlockchainNode - DEBUG - Node Node_0 generated entropy: -0.834853_0.349013
+2024-11-28 09:40:15 - BlockchainSystem - DEBUG - Node Node_0 generated entropy: -0.834853_0.349013
+2024-11-28 09:40:15 - BlockchainNode - DEBUG - Node Node_1 generated entropy: 1.242591_-0.055145
+2024-11-28 09:40:15 - BlockchainSystem - DEBUG - Node Node_1 generated entropy: 1.242591_-0.055145
+2024-11-28 09:40:15 - BlockchainNode - INFO - Leader Node_0 received entropy from Node Node_1: 1.242591_-0.055145
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_1 sent entropy to leader Node_0
+2024-11-28 09:40:15 - BlockchainNode - DEBUG - Node Node_2 generated entropy: 1.144533_0.057824
+2024-11-28 09:40:15 - BlockchainSystem - DEBUG - Node Node_2 generated entropy: 1.144533_0.057824
+2024-11-28 09:40:15 - BlockchainNode - INFO - Leader Node_0 received entropy from Node Node_2: 1.144533_0.057824
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_2 sent entropy to leader Node_0
+2024-11-28 09:40:15 - BlockchainNode - DEBUG - Node Node_3 generated entropy: -0.694737_0.338134
+2024-11-28 09:40:15 - BlockchainSystem - DEBUG - Node Node_3 generated entropy: -0.694737_0.338134
+2024-11-28 09:40:15 - BlockchainNode - INFO - Leader Node_0 received entropy from Node Node_3: -0.694737_0.338134
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_3 sent entropy to leader Node_0
+2024-11-28 09:40:15 - BlockchainNode - DEBUG - Node Node_4 generated entropy: -0.144933_0.285902
+2024-11-28 09:40:15 - BlockchainSystem - DEBUG - Node Node_4 generated entropy: -0.144933_0.285902
+2024-11-28 09:40:15 - BlockchainNode - INFO - Leader Node_0 received entropy from Node Node_4: -0.144933_0.285902
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_4 sent entropy to leader Node_0
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Adding Transactions to the Pools...
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Transaction added to pool: {'sender': 'Alice', 'receiver': 'Bob', 'amount': 50}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Alice', 'receiver': 'Bob', 'amount': 50}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Alice', 'receiver': 'Bob', 'amount': 50}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Alice', 'receiver': 'Bob', 'amount': 50}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Alice', 'receiver': 'Bob', 'amount': 50}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Alice', 'receiver': 'Bob', 'amount': 50}
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Transaction logged: {'sender': 'Alice', 'receiver': 'Bob', 'amount': 50}
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Transaction added to pool: {'sender': 'Charlie', 'receiver': 'Dave', 'amount': 100}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Charlie', 'receiver': 'Dave', 'amount': 100}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Charlie', 'receiver': 'Dave', 'amount': 100}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Charlie', 'receiver': 'Dave', 'amount': 100}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Charlie', 'receiver': 'Dave', 'amount': 100}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Charlie', 'receiver': 'Dave', 'amount': 100}
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Transaction logged: {'sender': 'Charlie', 'receiver': 'Dave', 'amount': 100}
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Transaction added to pool: {'sender': 'Eve', 'receiver': 'Frank', 'amount': 200}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Eve', 'receiver': 'Frank', 'amount': 200}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Eve', 'receiver': 'Frank', 'amount': 200}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Eve', 'receiver': 'Frank', 'amount': 200}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Eve', 'receiver': 'Frank', 'amount': 200}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Eve', 'receiver': 'Frank', 'amount': 200}
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Transaction logged: {'sender': 'Eve', 'receiver': 'Frank', 'amount': 200}
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Transaction added to pool: {'sender': 'Grace', 'receiver': 'Hank', 'amount': 75}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Grace', 'receiver': 'Hank', 'amount': 75}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Grace', 'receiver': 'Hank', 'amount': 75}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Grace', 'receiver': 'Hank', 'amount': 75}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Grace', 'receiver': 'Hank', 'amount': 75}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Grace', 'receiver': 'Hank', 'amount': 75}
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Transaction logged: {'sender': 'Grace', 'receiver': 'Hank', 'amount': 75}
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Transaction added to pool: {'sender': 'Ivy', 'receiver': 'John', 'amount': 125}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Ivy', 'receiver': 'John', 'amount': 125}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Ivy', 'receiver': 'John', 'amount': 125}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Ivy', 'receiver': 'John', 'amount': 125}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Ivy', 'receiver': 'John', 'amount': 125}
+2024-11-28 09:40:15 - BlockchainNode - INFO - Transaction added to pool: {'sender': 'Ivy', 'receiver': 'John', 'amount': 125}
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Transaction logged: {'sender': 'Ivy', 'receiver': 'John', 'amount': 125}
+2024-11-28 09:40:15 - BlockchainSystem - INFO - 5 transactions added to the pools of all nodes.
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Setting up P2P Network...
+2024-11-28 09:40:15 - BlockchainSystem - INFO - P2P Network initialized and listening on localhost:8000
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Performing Proof of Chaos Consensus...
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Leader Node_0 is calculating and broadcasting aggregated entropy...
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Aggregated Entropy: 2314604434.0
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_0 calculated Aggregated Entropy: 2314604434.000000
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_0 broadcasted Aggregated Entropy: 2314604434.000000
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Electing a new leader based on aggregated entropy...
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Electing a new leader based on Aggregated Entropy: 2314604434.000000
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Node Node_1 proximity to Aggregated Entropy: 7228879539472935184
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Node Node_2 proximity to Aggregated Entropy: 8236524952669315600
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Node Node_3 proximity to Aggregated Entropy: 7436021118422689
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Node Node_4 proximity to Aggregated Entropy: 344210047938600561
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Node Node_0 is no longer the leader.
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Node Node_3 is now the leader.
+2024-11-28 09:40:15 - BlockchainSystem - INFO - New Leader Elected: Node_3 with proximity 7436021118422689
+2024-11-28 09:40:15 - BlockchainSystem - INFO - New Leader Elected: Node_3
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Node_3 is proposing a block...
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_3 is proposing a block with Aggregated Entropy: 2314604434.000000
+2024-11-28 09:40:15 - BlockchainNode - INFO - Proposed Block by Node_3: Block(Index: 1, Hash: b289f99523922cf2a5bba8e662bb32339d65a0a26005eb57797586e04b094b5b, Previous Hash: 93b02ade47e3ff1045addcde1ad21e06b367cec73390b057e6d3724e0d19fe9e, Transactions: [{'sender': 'Grace', 'receiver': 'Hank', 'amount': 75}, {'sender': 'Eve', 'receiver': 'Frank', 'amount': 200}, {'sender': 'Alice', 'receiver': 'Bob', 'amount': 50}, {'sender': 'Charlie', 'receiver': 'Dave', 'amount': 100}, {'sender': 'Ivy', 'receiver': 'John', 'amount': 125}], Entropy: 2314604434.000000, Timestamp: 1732767015.530899)
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Proposed Block by Node_3: Index 1, Hash b289f99523922cf2a5bba8e662bb32339d65a0a26005eb57797586e04b094b5b
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Validating the proposed block across all nodes...
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_0 validating Block 1 with aggregate entropy 2314604434.000000
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_0 successfully validated Block 1.
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_1 validating Block 1 with aggregate entropy 2314604434.000000
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_1 successfully validated Block 1.
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_2 validating Block 1 with aggregate entropy 2314604434.000000
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_2 successfully validated Block 1.
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_3 validating Block 1 with aggregate entropy 2314604434.000000
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_3 successfully validated Block 1.
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_4 validating Block 1 with aggregate entropy 2314604434.000000
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_4 successfully validated Block 1.
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Block validated successfully by 5/5 nodes. Adding to blockchain.
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Removed 5 transactions from the pool.
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Block 1 added to the blockchain.
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Block created: Index 1, Hash b289f99523922cf2a5bba8e662bb32339d65a0a26005eb57797586e04b094b5b
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Block added successfully.
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Updating reputation scores for all nodes...
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_0: Reputation Score updated to 55.
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_1: Reputation Score updated to 55.
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_2: Reputation Score updated to 55.
+2024-11-28 09:40:15 - BlockchainNode - INFO - Leader Node Node_3: Block accepted. Reputation Score increased to 60.
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_3: Reputation Score updated to 60.
+2024-11-28 09:40:15 - BlockchainNode - INFO - Node Node_4: Reputation Score updated to 55.
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Verifying Blockchain State...
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Block 0: Block(Index: 0, Hash: 93b02ade47e3ff1045addcde1ad21e06b367cec73390b057e6d3724e0d19fe9e, Previous Hash: 0, Transactions: [], Entropy: 0, Timestamp: 1732767015.522741)
+2024-11-28 09:40:15 - BlockchainSystem - INFO - Block 1: Block(Index: 1, Hash: b289f99523922cf2a5bba8e662bb32339d65a0a26005eb57797586e04b094b5b, Previous Hash: 93b02ade47e3ff1045addcde1ad21e06b367cec73390b057e6d3724e0d19fe9e, Transactions: [{'sender': 'Grace', 'receiver': 'Hank', 'amount': 75}, {'sender': 'Eve', 'receiver': 'Frank', 'amount': 200}, {'sender': 'Alice', 'receiver': 'Bob', 'amount': 50}, {'sender': 'Charlie', 'receiver': 'Dave', 'amount': 100}, {'sender': 'Ivy', 'receiver': 'John', 'amount': 125}], Entropy: 2314604434.000000, Timestamp: 1732767015.530899)
