@@ -32,6 +32,10 @@ class Node:
 
         if self.logger:
             self.logger.info(f"Node {self.node_id} initialized.")
+        if hasattr(blockchain, "aggregate_entropy"):
+            self.logger.debug(f"Type of blockchain.aggregate_entropy: {type(blockchain.aggregate_entropy)}")
+            if isinstance(blockchain.aggregate_entropy, str):
+                self.logger.error("aggregate_entropy is incorrectly a string. Investigate assignment conflicts.")
 
     def generate_entropy(self):
         """
@@ -262,7 +266,7 @@ class Node:
             return None
 
         # Calculate aggregated entropy
-        aggregated_entropy = self.blockchain.aggregate_entropy()
+        aggregated_entropy = self.blockchain.calculate_aggregate_entropy()
         self.logger.info(f"Aggregated entropy: {aggregated_entropy}")
 
         try:

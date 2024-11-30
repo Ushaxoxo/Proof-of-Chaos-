@@ -279,7 +279,6 @@ def aggregate_entropy():
     except Exception as e:
         node.logger.error(f"Error in aggregate_entropy: {str(e)}")
         return jsonify({"error": "An error occurred"}), 500
-
 @app.route('/propose_block', methods=['POST'])
 def propose_block():
     """
@@ -290,14 +289,17 @@ def propose_block():
         return jsonify({"error": "Only the leader can propose a block"}), 403
 
     try:
-        aggregated_entropy = node.blockchain.aggregate_entropy()
-        new_block = node.propose_block(aggregated_entropy)
+        # Debug: Log the type of aggregate_entropy
+        node.logger.debug(f"Type of aggregate_entropy: {type(node.blockchain.aggregate_entropy)}")
+        if isinstance(node.blockchain.aggregate_entropy, str):
+            node.logger.error("aggregate_entropy is incorrectly a string. Investigate assignment conflicts.")
+
+        # Ensure it is callable
+        aggregated_entropy = node.blockchain.calculate_aggregate_entropy()
+        new_block = node.propose_block(str(aggregated_entropy))
 
         if new_block:
-            # Log the block details
             node.logger.info(f"Proposing block: {new_block.__dict__}")
-
-            # Broadcast the proposed block to all nodes
             if node.p2p_network:
                 node.p2p_network.broadcast_message(
                     "propose_block",
@@ -308,10 +310,9 @@ def propose_block():
                         "entropy": new_block.entropy,
                         "timestamp": new_block.timestamp,
                         "hash": new_block.hash,
-                        "block_data": new_block.__dict__,  # Include the full block data
+                        "block_data": new_block.__dict__,
                     }
                 )
-                # Cache the proposed block in the leader node for majority validation
                 node.blockchain.pending_block = new_block
                 return jsonify({"message": "Block proposed and broadcasted", "block": new_block.__dict__}), 200
         else:

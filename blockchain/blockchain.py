@@ -114,7 +114,7 @@ class Blockchain:
         return True
 
 
-    def aggregate_entropy(self):
+    def calculate_aggregate_entropy(self):
         """
         Aggregate entropy using weighted average fusion.
         """
