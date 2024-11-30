@@ -1,0 +1,75 @@
+2024-11-30 06:40:25 - node2 - INFO - P2P Network initialized for node node2
+2024-11-30 06:40:25 - node2 - INFO - Genesis Block Created: Block(Index: 0, Hash: b9f98eff07cc3a184133e353c4565bede4f65dcb994b88cdcd6fc8747905152c, Previous Hash: 0, Transactions: [], Entropy: 0, Timestamp: 1732894630.0)
+2024-11-30 06:40:25 - node2 - INFO - Node node2 initialized.
+2024-11-30 06:44:23 - node2 - INFO - P2P Network initialized for node node2
+2024-11-30 06:44:23 - node2 - INFO - Genesis Block Created: Block(Index: 0, Hash: b9f98eff07cc3a184133e353c4565bede4f65dcb994b88cdcd6fc8747905152c, Previous Hash: 0, Transactions: [], Entropy: 0, Timestamp: 1732894630.0)
+2024-11-30 06:44:23 - node2 - INFO - Node node2 initialized.
+2024-11-30 06:44:23 - node2 - INFO - Leader updated to node1
+2024-11-30 06:45:05 - node2 - INFO - P2P Network initialized for node node2
+2024-11-30 06:45:05 - node2 - INFO - Genesis Block Created: Block(Index: 0, Hash: b9f98eff07cc3a184133e353c4565bede4f65dcb994b88cdcd6fc8747905152c, Previous Hash: 0, Transactions: [], Entropy: 0, Timestamp: 1732894630.0)
+2024-11-30 06:45:05 - node2 - INFO - Node node2 initialized.
+2024-11-30 06:45:10 - node2 - INFO - Leader updated to node1
+2024-11-30 06:51:48 - node2 - INFO - P2P Network initialized for node node2
+2024-11-30 06:51:48 - node2 - INFO - Genesis Block Created: Block(Index: 0, Hash: b9f98eff07cc3a184133e353c4565bede4f65dcb994b88cdcd6fc8747905152c, Previous Hash: 0, Transactions: [], Entropy: 0, Timestamp: 1732894630.0)
+2024-11-30 06:51:48 - node2 - INFO - Node node2 initialized.
+2024-11-30 06:51:48 - node2 - INFO - Leader updated to node1
+2024-11-30 06:52:40 - node2 - ERROR - Error while sending entropy to leader: name 'requests' is not defined
+2024-11-30 06:53:15 - node2 - ERROR - Error while sending entropy to leader: name 'requests' is not defined
+2024-11-30 06:53:57 - node2 - INFO - P2P Network initialized for node node2
+2024-11-30 06:53:57 - node2 - INFO - Genesis Block Created: Block(Index: 0, Hash: b9f98eff07cc3a184133e353c4565bede4f65dcb994b88cdcd6fc8747905152c, Previous Hash: 0, Transactions: [], Entropy: 0, Timestamp: 1732894630.0)
+2024-11-30 06:53:57 - node2 - INFO - Node node2 initialized.
+2024-11-30 06:54:00 - node2 - ERROR - Error while sending entropy to leader: 'in <string>' requires string as left operand, not NoneType
+2024-11-30 06:54:02 - node2 - INFO - Leader updated to node1
+2024-11-30 06:54:18 - node2 - ERROR - Error while sending entropy to leader: name 'requests' is not defined
+2024-11-30 06:56:39 - node2 - INFO - P2P Network initialized for node node2
+2024-11-30 06:56:39 - node2 - INFO - Genesis Block Created: Block(Index: 0, Hash: b9f98eff07cc3a184133e353c4565bede4f65dcb994b88cdcd6fc8747905152c, Previous Hash: 0, Transactions: [], Entropy: 0, Timestamp: 1732894630.0)
+2024-11-30 06:56:39 - node2 - INFO - Node node2 initialized.
+2024-11-30 06:56:44 - node2 - INFO - Leader updated to node1
+2024-11-30 06:56:49 - node2 - ERROR - Error while sending entropy to leader: name 'requests' is not defined
+2024-11-30 07:02:54 - node2 - INFO - P2P Network initialized for node node2
+2024-11-30 07:02:54 - node2 - INFO - Genesis Block Created: Block(Index: 0, Hash: b9f98eff07cc3a184133e353c4565bede4f65dcb994b88cdcd6fc8747905152c, Previous Hash: 0, Transactions: [], Entropy: 0, Timestamp: 1732894630.0)
+2024-11-30 07:02:54 - node2 - INFO - Node node2 initialized.
+2024-11-30 07:02:59 - node2 - INFO - Leader updated to node1
+2024-11-30 07:03:05 - node2 - ERROR - Error while sending entropy to leader: name 'requests' is not defined
+2024-11-30 07:05:35 - node2 - INFO - P2P Network initialized for node node2
+2024-11-30 07:05:35 - node2 - INFO - Genesis Block Created: Block(Index: 0, Hash: b9f98eff07cc3a184133e353c4565bede4f65dcb994b88cdcd6fc8747905152c, Previous Hash: 0, Transactions: [], Entropy: 0, Timestamp: 1732894630.0)
+2024-11-30 07:05:35 - node2 - INFO - Node node2 initialized.
+2024-11-30 07:05:35 - node2 - INFO - Leader updated to node1
+2024-11-30 07:06:11 - node2 - INFO - Successfully sent entropy to leader node1: -212049693393168678251822007340119116172351506095139371494382940304049424053444084546102767032163832886578313946481478013550592.000000_-116755154078295654819927972877565090290383318821495383101800448.000000
+2024-11-30 07:12:24 - node2 - INFO - P2P Network initialized for node node2
+2024-11-30 07:12:24 - node2 - INFO - Genesis Block Created: Block(Index: 0, Hash: b9f98eff07cc3a184133e353c4565bede4f65dcb994b88cdcd6fc8747905152c, Previous Hash: 0, Transactions: [], Entropy: 0, Timestamp: 1732894630.0)
+2024-11-30 07:12:24 - node2 - INFO - Node node2 initialized.
+2024-11-30 07:12:24 - node2 - INFO - Leader updated to node1
+2024-11-30 07:12:38 - node2 - INFO - Successfully sent entropy to leader node1: 0.066953_0.217357
+2024-11-30 07:17:53 - node2 - INFO - P2P Network initialized for node node2
+2024-11-30 07:17:53 - node2 - INFO - Genesis Block Created: Block(Index: 0, Hash: b9f98eff07cc3a184133e353c4565bede4f65dcb994b88cdcd6fc8747905152c, Previous Hash: 0, Transactions: [], Entropy: 0, Timestamp: 1732894630.0)
+2024-11-30 07:17:53 - node2 - INFO - Node node2 initialized.
+2024-11-30 07:17:58 - node2 - INFO - Leader updated to node1
+2024-11-30 07:18:00 - node2 - INFO - Successfully sent entropy to leader node1: 0.109101_0.239430
+2024-11-30 07:23:42 - node2 - INFO - P2P Network initialized for node node2
+2024-11-30 07:23:42 - node2 - INFO - Genesis Block Created: Block(Index: 0, Hash: b9f98eff07cc3a184133e353c4565bede4f65dcb994b88cdcd6fc8747905152c, Previous Hash: 0, Transactions: [], Entropy: 0, Timestamp: 1732894630.0)
+2024-11-30 07:23:42 - node2 - INFO - Node node2 initialized.
+2024-11-30 07:23:47 - node2 - INFO - Leader updated to node1
+2024-11-30 07:24:12 - node2 - INFO - Successfully sent entropy to leader node1: 0.647439_-0.049847
+2024-11-30 07:25:36 - node2 - INFO - P2P Network initialized for node node2
+2024-11-30 07:25:36 - node2 - INFO - Genesis Block Created: Block(Index: 0, Hash: b9f98eff07cc3a184133e353c4565bede4f65dcb994b88cdcd6fc8747905152c, Previous Hash: 0, Transactions: [], Entropy: 0, Timestamp: 1732894630.0)
+2024-11-30 07:25:36 - node2 - INFO - Node node2 initialized.
+2024-11-30 07:25:36 - node2 - INFO - Leader updated to node1
+2024-11-30 07:25:49 - node2 - INFO - Successfully sent entropy to leader node1: 0.389979_0.181510
+2024-11-30 07:28:38 - node2 - INFO - P2P Network initialized for node node2
+2024-11-30 07:28:38 - node2 - INFO - Genesis Block Created: Block(Index: 0, Hash: b9f98eff07cc3a184133e353c4565bede4f65dcb994b88cdcd6fc8747905152c, Previous Hash: 0, Transactions: [], Entropy: 0, Timestamp: 1732894630.0)
+2024-11-30 07:28:38 - node2 - INFO - Node node2 initialized.
+2024-11-30 07:28:43 - node2 - INFO - Leader updated to node1
+2024-11-30 07:31:22 - node2 - INFO - Leader updated to node2
+2024-11-30 07:41:19 - node2 - INFO - P2P Network initialized for node node2
+2024-11-30 07:41:19 - node2 - INFO - Genesis Block Created: Block(Index: 0, Hash: b9f98eff07cc3a184133e353c4565bede4f65dcb994b88cdcd6fc8747905152c, Previous Hash: 0, Transactions: [], Entropy: 0, Timestamp: 1732894630.0)
+2024-11-30 07:41:19 - node2 - INFO - Node node2 initialized.
+2024-11-30 07:41:24 - node2 - INFO - Leader updated to node1
+2024-11-30 07:41:39 - node2 - INFO - Successfully sent entropy to leader node1: -13057849945186564540841060173323637850627997369846967701479958681852055842939532648337234839609145243497442892051215613847142400.000000_-916205877934644925412666769329126815704973339763015385593413632.000000
+2024-11-30 08:03:06 - node2 - INFO - P2P Network initialized for node node2
+2024-11-30 08:03:06 - node2 - INFO - Genesis Block Created: Block(Index: 0, Hash: b9f98eff07cc3a184133e353c4565bede4f65dcb994b88cdcd6fc8747905152c, Previous Hash: 0, Transactions: [], Entropy: 0, Timestamp: 1732894630.0)
+2024-11-30 08:03:06 - node2 - INFO - Node node2 initialized.
+2024-11-30 08:03:10 - node2 - ERROR - Error while sending entropy to leader: 'in <string>' requires string as left operand, not NoneType
+2024-11-30 08:03:11 - node2 - INFO - Leader updated to node1
+2024-11-30 08:04:03 - node2 - INFO - Successfully sent entropy to leader node1: -61682758357342764917464795614316795087471047149211379912095799515826865731272704.000000_-1991311171091773985033457637928592211968.000000
+2024-11-30 08:04:07 - node2 - INFO - Received aggregate_entropy: 1669147945.000000, Next leader: node3

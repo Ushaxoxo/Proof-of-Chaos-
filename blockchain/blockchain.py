@@ -1,4 +1,5 @@
 from blockchain.block import Block
+from config import GENESIS_BLOCK
 from blockchain.consensus import (
     weighted_average_fusion,
     weighted_minkowski_distance,
@@ -15,30 +16,56 @@ class Blockchain:
         self.node_entropies = {}  # Dictionary to store node_id -> entropy
         self.received_entropy = None  # Initialize received entropy
         self.nodes = []  # List of nodes in the blockchain system
+        self.validate_genesis_block()
 
     def create_genesis_block(self):
         """
-        Create the genesis block with default values.
+        Create the shared genesis block using pre-defined values.
         """
         genesis_block = Block(
-            index=0,
-            previous_hash="0",
-            transactions=[],
-            entropy="0",
-            timestamp=time.time(),
+            index=GENESIS_BLOCK["index"],
+            previous_hash=GENESIS_BLOCK["previous_hash"],
+            transactions=GENESIS_BLOCK["transactions"],
+            entropy=GENESIS_BLOCK["entropy"],
+            timestamp=GENESIS_BLOCK["timestamp"],
         )
-        genesis_block.hash = genesis_block.compute_hash()
+        genesis_block.hash = GENESIS_BLOCK["hash"]
         if self.logger:
             self.logger.info(f"Genesis Block Created: {genesis_block}")
         return genesis_block
 
+    def validate_genesis_block(self):
+        """
+        Ensure the Genesis Block matches the shared Genesis Block.
+        """
+        genesis_block = self.chain[0]
+        if (
+            genesis_block.index != GENESIS_BLOCK["index"]
+            or genesis_block.previous_hash != GENESIS_BLOCK["previous_hash"]
+            or genesis_block.hash != GENESIS_BLOCK["hash"]
+            or genesis_block.transactions != GENESIS_BLOCK["transactions"]
+            or genesis_block.entropy != GENESIS_BLOCK["entropy"]
+            or abs(genesis_block.timestamp - GENESIS_BLOCK["timestamp"]) > 1e-6
+        ):
+            raise ValueError("Genesis Block mismatch! Check configuration.")
+
     def add_transaction_to_pool(self, transaction):
+        if self.validate_transaction(transaction):
+            self.pending_transactions.append(transaction)
+            if self.logger:
+                self.logger.info(f"Transaction added to pool: {transaction}")
+            return True
+        else:
+            if self.logger:
+                self.logger.warning(f"Invalid transaction rejected: {transaction}")
+            return False
+        
+    def validate_transaction(self, transaction):
         """
-        Add a transaction to the global transaction pool.
+        Validate a transaction (basic validation for now).
         """
-        self.pending_transactions.append(transaction)
-        if self.logger:
-            self.logger.info(f"Transaction added to pool: {transaction}")
+        # Add specific validation logic (e.g., format, signature)
+        return isinstance(transaction, dict) and "id" in transaction and "data" in transaction
 
     def get_transactions_from_pool(self, limit=50):
         """

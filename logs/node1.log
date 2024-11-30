@@ -1,0 +1,10 @@
+2024-11-30 08:05:59 - node1 - WARNING - Invalid transaction rejected: {'id': 'tx1', 'sender': 'Alice', 'receiver': 'Bob', 'amount': 10}
+2024-11-30 08:05:59 - node1 - WARNING - Invalid transaction rejected: {'id': 'tx2', 'sender': 'Alice', 'receiver': 'Bob', 'amount': 20}
+2024-11-30 08:05:59 - node1 - WARNING - Invalid transaction rejected: {'id': 'tx3', 'sender': 'Alice', 'receiver': 'Bob', 'amount': 30}
+2024-11-30 08:05:59 - node1 - WARNING - Invalid transaction rejected: {'id': 'tx4', 'sender': 'Alice', 'receiver': 'Bob', 'amount': 40}
+2024-11-30 08:05:59 - node1 - WARNING - Invalid transaction rejected: {'id': 'tx5', 'sender': 'Alice', 'receiver': 'Bob', 'amount': 50}
+2024-11-30 08:05:59 - node1 - WARNING - Invalid transaction rejected: {'id': 'tx6', 'sender': 'Alice', 'receiver': 'Bob', 'amount': 60}
+2024-11-30 08:05:59 - node1 - WARNING - Invalid transaction rejected: {'id': 'tx7', 'sender': 'Alice', 'receiver': 'Bob', 'amount': 70}
+2024-11-30 08:05:59 - node1 - WARNING - Invalid transaction rejected: {'id': 'tx8', 'sender': 'Alice', 'receiver': 'Bob', 'amount': 80}
+2024-11-30 08:05:59 - node1 - WARNING - Invalid transaction rejected: {'id': 'tx9', 'sender': 'Alice', 'receiver': 'Bob', 'amount': 90}
+2024-11-30 08:05:59 - node1 - WARNING - Invalid transaction rejected: {'id': 'tx10', 'sender': 'Alice', 'receiver': 'Bob', 'amount': 100}

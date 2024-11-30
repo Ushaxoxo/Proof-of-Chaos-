@@ -3,20 +3,17 @@ from logging.handlers import RotatingFileHandler
 import os
 
 def setup_logger(name, log_file="blockchain.log", level=logging.INFO, max_bytes=5 * 1024 * 1024, backup_count=3):
-   
-    # Create logger
     logger = logging.getLogger(name)
-    logger.setLevel(level)
-    logger.propagate = False  # Prevent duplicate logs if using root logger
 
-    # Formatter for logs
-    formatter = logging.Formatter(
-        "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-        datefmt="%Y-%m-%d %H:%M:%S",
-    )
+    if not logger.hasHandlers():  # Prevent duplicate handlers
+        logger.setLevel(level)
+        logger.propagate = False
 
-    # File handler with rotation
-    if log_file:
+        formatter = logging.Formatter(
+            "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+            datefmt="%Y-%m-%d %H:%M:%S",
+        )
+
         file_handler = RotatingFileHandler(
             log_file, maxBytes=max_bytes, backupCount=backup_count
         )

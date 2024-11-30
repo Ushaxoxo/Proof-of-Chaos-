@@ -2,6 +2,7 @@ from blockchain.consensus import henon_entropy, reorder_transactions, weighted_m
 from blockchain.block import Block
 from utils.logger import setup_logger
 import random
+import requests 
 
 node_logger = setup_logger(name="BlockchainNode", log_file="blockchain_system.log", level="DEBUG")
 
@@ -13,23 +14,31 @@ def leader_only(func):
     return wrapper
 
 class Node:
-    def __init__(self, node_id, blockchain, logger=node_logger):
+    def __init__(self, node_id, blockchain,logger=None,p2p_network=None):
         self.node_id = node_id
         self.blockchain = blockchain
-        self.logger = logger
+        self.logger = logger or setup_logger(name=node_id)  # Use provided logger or default
         self.transaction_pool = []  # Local transaction pool
         self.entropy = None  # Node-specific entropy
         self.is_leader = False  # Indicates if the node is the leader
+        self.leader_id = None  # Track the current leader ID
         self.reputation_score = 50  # Default reputation score for the node
+        self.p2p_network = p2p_network  # Reference to the P2P network instance
+        self.processed_transactions = set()  # Track processed transaction IDs
+
+        print(f"Node {self.node_id} initialized.")  # Debug print
+
+        if self.logger:
+            self.logger.info(f"Node {self.node_id} initialized.")
 
     def generate_entropy(self):
         """
         Generate entropy using the Henon Map from consensus.py.
         """
-        entropy = henon_entropy()
+        self.entropy = henon_entropy()
         if self.logger:
-            self.logger.debug(f"Node {self.node_id} generated entropy: {entropy}")
-        return entropy
+            self.logger.debug(f"Node {self.node_id} generated entropy: {self.entropy}")
+        return self.entropy
 
     def send_entropy_to_leader(self, leader_node):
         """
@@ -43,17 +52,31 @@ class Node:
         """
         Receive entropy from another node.
         """
-        self.blockchain.node_entropies[node_id] = entropy
-        if self.logger:
-            self.logger.info(f"Leader {self.node_id} received entropy from Node {node_id}: {entropy}")
+        try:
+            numeric_entropy = entropy_to_numeric(entropy)  # Convert to numeric format
+            self.blockchain.node_entropies[node_id] = numeric_entropy
+            if self.logger:
+                self.logger.info(f"Leader {self.node_id} received entropy from Node {node_id}: {entropy}")
+        except Exception as e:
+            self.logger.error(f"Failed to process entropy from Node {node_id}: {str(e)}")
 
     def add_transaction_to_pool(self, transaction):
         """
-        Add a transaction to the local transaction pool.
+        Add a transaction to the pool if it hasn't already been processed.
         """
-        self.transaction_pool.append(transaction)
-        if self.logger:
-            self.logger.info(f"Transaction added to pool: {transaction}")
+        transaction_id = transaction.get("id")
+        if transaction_id in self.processed_transactions:
+            self.logger.info(f"Transaction {transaction_id} already processed. Skipping.")
+            return False
+
+        # Add the transaction to the pool and mark it as processed
+        if self.blockchain.add_transaction_to_pool(transaction):
+            self.processed_transactions.add(transaction_id)
+            if self.p2p_network:
+                self.logger.info(f"Broadcasting transaction: {transaction}")
+                self.p2p_network.broadcast_transaction(transaction)
+            return True
+        return False
 
     def get_transactions_from_pool(self, limit=50):
         """
@@ -61,25 +84,26 @@ class Node:
         """
         return self.transaction_pool[:limit]
 
-    @leader_only
-    def calculate_and_broadcast_entropy(self, p2p_network):
-        """
-        Calculate the aggregated entropy and broadcast it to the network.
-        """
-        if not self.blockchain.node_entropies:
-            self.logger.error("No entropy values received from nodes. Cannot calculate aggregated entropy.")
-            return None
+    # @leader_only
+    # def calculate_and_broadcast_entropy(self, p2p_network):
+    #     """
+    #     Calculate the aggregated entropy and broadcast it to the network.
+    #     """
+    #     if not self.blockchain.node_entropies:
+    #         self.logger.error("No entropy values received from nodes. Cannot calculate aggregated entropy.")
+    #         return None
 
-        # Calculate aggregated entropy
-        aggregated_entropy = self.blockchain.aggregate_entropy()
+    #     # Calculate aggregated entropy
+    #     aggregated_entropy = self.blockchain.aggregate_entropy()
 
-        # Log and broadcast the aggregated entropy
-        self.logger.info(f"Node {self.node_id} calculated Aggregated Entropy: {aggregated_entropy}")
-        p2p_network.broadcast_entropy(aggregated_entropy)
-        self.logger.info(f"Node {self.node_id} broadcasted Aggregated Entropy: {aggregated_entropy}")
+    #     # Log and broadcast the aggregated entropy
+    #     self.logger.info(f"Node {self.node_id} calculated Aggregated Entropy: {aggregated_entropy}")
+    #     p2p_network.broadcast_entropy(aggregated_entropy)
+    #     self.logger.info(f"Node {self.node_id} broadcasted Aggregated Entropy: {aggregated_entropy}")
 
-        return aggregated_entropy
+    #     return aggregated_entropy
 
+    
     @leader_only
     def propose_block(self, aggregated_entropy):
         """
@@ -182,3 +206,71 @@ class Node:
                 self.logger.info(f"Leader Node {self.node_id}: Block rejected. Reputation Score decreased to {self.reputation_score}.")
         
         self.logger.info(f"Node {self.node_id}: Reputation Score updated to {self.reputation_score}.")
+
+    @leader_only
+    def calculate_aggregate_entropy_and_elect_leader(self):
+        """
+        Leader aggregates entropy from all nodes, determines the next leader,
+        and broadcasts both the aggregate entropy and the new leader.
+        """
+        if not self.blockchain.node_entropies:
+            self.logger.error("No entropy values received from nodes. Cannot calculate aggregate entropy.")
+            return None
+
+        # Calculate aggregated entropy
+        aggregated_entropy = self.blockchain.aggregate_entropy()
+        self.logger.info(f"Aggregated entropy: {aggregated_entropy}")
+
+        try:
+            # Convert aggregate entropy to numeric
+            next_entropy = entropy_to_numeric(aggregated_entropy)
+
+            # Determine the next leader
+            closest_node = None
+            closest_distance = float('inf')
+
+            for node_id, node_entropy in self.blockchain.node_entropies.items():
+                numeric_entropy = entropy_to_numeric(node_entropy)  # Convert each entropy to numeric
+                distance = weighted_minkowski_distance(next_entropy, numeric_entropy)
+                if distance < closest_distance:
+                    closest_distance = distance
+                    closest_node = node_id
+
+            # Update the leader
+            self.logger.info(f"Aggregate entropy: {aggregated_entropy}, Next leader: {closest_node}")
+            self.leader_id = closest_node
+            self.is_leader = (self.node_id == closest_node)
+
+            # Broadcast the new leader and aggregate entropy
+            if self.p2p_network:
+                self.p2p_network.broadcast_message(
+                    "broadcast_aggregate_entropy",
+                    {"aggregate_entropy": aggregated_entropy, "next_leader": closest_node}
+                )
+
+            return closest_node
+
+        except Exception as e:
+            self.logger.error(f"Error in calculate_aggregate_entropy_and_elect_leader: {str(e)}")
+            return None
+
+
+   
+    def broadcast_entropy(self):
+        """
+        Broadcast the generated entropy to the leader.
+        """
+        if self.leader_id == self.node_id:
+            self.logger.warning("This node is the leader. Cannot broadcast entropy to itself.")
+            return
+
+        leader_url = [peer for peer in self.p2p_network.peers if self.leader_id in peer][0]
+
+        try:
+            response = requests.post(
+                f"{leader_url}/receive_entropy",
+                json={"node_id": self.node_id, "entropy": self.entropy},
+            )
+            self.logger.info(f"Entropy sent to leader {self.leader_id}. Response: {response.status_code}")
+        except Exception as e:
+            self.logger.error(f"Failed to send entropy to leader {self.leader_id}: {str(e)}")
