@@ -25,6 +25,8 @@ class Node:
         self.reputation_score = 50  # Default reputation score for the node
         self.p2p_network = p2p_network  # Reference to the P2P network instance
         self.processed_transactions = set()  # Track processed transaction IDs
+        self.processed_blocks = set()  # Track processed block indices (to prevent reprocessing)
+        self.validation_responses = {}  # Store validation responses for each block index
 
         print(f"Node {self.node_id} initialized.")  # Debug print
 
@@ -65,24 +67,52 @@ class Node:
         Add a transaction to the pool if it hasn't already been processed.
         """
         transaction_id = transaction.get("id")
+        
+        # Check if the transaction has already been processed
         if transaction_id in self.processed_transactions:
             self.logger.info(f"Transaction {transaction_id} already processed. Skipping.")
             return False
 
-        # Add the transaction to the pool and mark it as processed
+        # Add the transaction to the blockchain's transaction pool
         if self.blockchain.add_transaction_to_pool(transaction):
+            # Mark the transaction as processed
             self.processed_transactions.add(transaction_id)
+
+            # Add the transaction to the local transaction pool
+            self.transaction_pool.append(transaction)
+            
+            # Log and broadcast the transaction
+            self.logger.info(f"Transaction {transaction_id} added to the pool: {transaction}")
             if self.p2p_network:
                 self.logger.info(f"Broadcasting transaction: {transaction}")
                 self.p2p_network.broadcast_transaction(transaction)
+
             return True
+
         return False
+
 
     def get_transactions_from_pool(self, limit=50):
         """
         Retrieve a limited number of transactions from the pool.
         """
         return self.transaction_pool[:limit]
+    
+    def remove_transactions_from_pool(self, transactions):
+        """
+        Remove transactions from the transaction pool.
+        :param transactions: List of transactions to remove
+        """
+        try:
+            transaction_ids = {tx["id"] for tx in transactions}
+            self.blockchain.pending_transactions = [
+                tx for tx in self.blockchain.pending_transactions
+                if tx["id"] not in transaction_ids
+            ]
+            self.logger.info(f"Removed transactions from pool: {transaction_ids}")
+        except Exception as e:
+            self.logger.error(f"Error removing transactions from pool: {str(e)}")
+
 
     # @leader_only
     # def calculate_and_broadcast_entropy(self, p2p_network):
@@ -106,29 +136,43 @@ class Node:
     
     @leader_only
     def propose_block(self, aggregated_entropy):
-        """
-        Propose a new block if this node is the leader.
-        """
-        transactions = self.get_transactions_from_pool(limit=50)
-        if self.logger:
-            self.logger.info(f"Node {self.node_id} is proposing a block with Aggregated Entropy: {aggregated_entropy}")
+            """
+            Propose a new block if this node is the leader.
+            """
+            try:
+                # Fetch transactions from the transaction pool
+                transactions = self.get_transactions_from_pool(limit=50)
+                if not transactions:
+                    self.logger.warning("No transactions available to include in the block.")
+                    return None
 
-        # Reorder transactions
-        ordered_transactions = reorder_transactions(transactions, str(aggregated_entropy), logger=self.logger)
+                # Log the transaction pool and aggregated entropy
+                self.logger.debug(f"Transactions in pool: {transactions}")
+                self.logger.debug(f"Aggregated entropy: {aggregated_entropy}")
 
-        # Create the new block
-        new_block = Block(
-            index=len(self.blockchain.chain),
-            previous_hash=self.blockchain.chain[-1].hash,
-            transactions=ordered_transactions,
-            entropy=str(aggregated_entropy),
-        )
-        new_block.hash = new_block.compute_hash()
+                # Reorder transactions
+                ordered_transactions = reorder_transactions(transactions, str(aggregated_entropy), logger=self.logger)
 
-        if self.logger:
-            self.logger.info(f"Proposed Block by {self.node_id}: {new_block}")
+                # Create the new block
+                new_block = Block(
+                    index=len(self.blockchain.chain),
+                    previous_hash=self.blockchain.chain[-1].hash,
+                    transactions=ordered_transactions,
+                    entropy=str(aggregated_entropy),
+                )
+                new_block.hash = new_block.compute_hash()
 
-        return new_block
+                # Remove processed transactions from the pool
+                self.remove_transactions_from_pool(transactions)
+
+                # Log the proposed block
+                self.logger.info(f"Proposed Block: {new_block}")
+                return new_block
+
+            except Exception as e:
+                self.logger.error(f"Error in propose_block: {str(e)}")
+                return None
+
 
     def __repr__(self):
         return f"Node(ID: {self.node_id}, Leader: {self.is_leader})"

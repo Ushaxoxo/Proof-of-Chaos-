@@ -17,7 +17,9 @@ class P2PNetwork:
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.register_handler("broadcast_entropy", self.handle_broadcast_entropy)
         self.register_handler("new_transaction", self.handle_new_transaction)    
-        self.register_handler("broadcast_aggregate_entropy", self.handle_broadcast_aggregate_entropy)    
+        self.register_handler("broadcast_aggregate_entropy", self.handle_broadcast_aggregate_entropy) 
+        self.register_handler("propose_block", self.handle_propose_block)
+        self.register_handler("block_validation", self.handle_block_validation)   
         if self.logger:
             self.logger.info(f"P2P Network initialized for node {node_id}")
         else:
@@ -88,6 +90,9 @@ class P2PNetwork:
                     # Map message_type to specific Flask endpoint
                     endpoint_map = {
                         "broadcast_aggregate_entropy": "receive_aggregate_entropy",
+                        "propose_block": "receive_proposed_block",
+                        "block_validation": "validate_block",
+
                     }
                     endpoint = endpoint_map.get(message_type, message_type)
 
@@ -267,3 +272,92 @@ class P2PNetwork:
         self.is_leader = (self.node_id == next_leader)
 
         self.logger.info(f"Received broadcast: Aggregate entropy = {aggregate_entropy}, Next leader = {next_leader}")
+
+    def handle_propose_block(self, payload):
+        """
+        Handle a proposed block broadcasted by the leader.
+        """
+        try:
+            self.node.logger.info(f"Handling proposed block: {payload}")
+            # Simulate the `/receive_proposed_block` logic
+            block_data = payload
+            proposed_block = Block(
+                index=block_data["index"],
+                previous_hash=block_data["previous_hash"],
+                transactions=block_data["transactions"],
+                entropy=block_data["entropy"],
+                timestamp=block_data["timestamp"],
+            )
+            proposed_block.hash = block_data["hash"]
+
+            # Validate the block
+            is_valid = self.node.validate_block(proposed_block)
+
+            # Respond to the leader with validation status
+            response_status = "valid" if is_valid else "invalid"
+            self.broadcast_message(
+                "block_validation",
+                {
+                    "block_index": proposed_block.index,
+                    "node_id": self.node.node_id,
+                    "status": response_status,
+                }
+            )
+        except Exception as e:
+            self.node.logger.error(f"Error handling proposed block: {str(e)}")
+
+
+    def broadcast_validation(self, block_index, node_id, status, block_data):
+        """
+        Broadcast the validation result of a block.
+        """
+        payload = {
+            "block_index": block_index,
+            "node_id": node_id,
+            "status": status,
+            "block_data": block_data  # Include block data
+        }
+        self.broadcast_message("validate_block", payload)
+
+
+    def handle_block_validation(self, payload):
+        """
+        Handle block validation responses from follower nodes.
+        """
+        try:
+            block_index = payload.get("block_index")
+            node_id = payload.get("node_id")
+            status = payload.get("status")
+            block_data = payload.get("block_data")  # Ensure block data is retrieved
+
+            if not block_index or not node_id or not status or not block_data:
+                self.node.logger.error(f"Invalid block validation payload: {payload}")
+                return
+
+            self.node.logger.info(f"Validation received for Block {block_index}: Node {node_id}, Status {status}")
+
+            # Track validation responses in the leader node
+            if not hasattr(self.node, "validation_responses"):
+                self.node.validation_responses = {}
+            if block_index not in self.node.validation_responses:
+                self.node.validation_responses[block_index] = []
+            self.node.validation_responses[block_index].append((node_id, status))
+
+            # Check if majority has validated
+            valid_count = sum(1 for _, s in self.node.validation_responses[block_index] if s == "valid")
+            invalid_count = sum(1 for _, s in self.node.validation_responses[block_index] if s == "invalid")
+            total_nodes = len(self.peers) + 1  # Including the leader
+
+            if valid_count > total_nodes // 2:
+                self.node.logger.info(f"Block {block_index} accepted by majority. Adding to blockchain.")
+                block = Block(**block_data)  # Create block from received data
+                if self.node.blockchain.add_block(block):  # Add block to the chain
+                    self.node.logger.info(f"Block {block_index} successfully added to the chain.")
+                else:
+                    self.node.logger.error(f"Failed to add Block {block_index} to the blockchain.")
+                del self.node.validation_responses[block_index]
+            elif invalid_count > total_nodes // 2:
+                self.node.logger.warning(f"Block {block_index} rejected by majority.")
+                del self.node.validation_responses[block_index]
+        except Exception as e:
+            self.node.logger.error(f"Error handling block validation: {str(e)}")

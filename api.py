@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from network.node import Node
 from blockchain.blockchain import Blockchain
+from blockchain.block import Block
 from utils.logger import setup_logger
 import os
 from network.p2p import P2PNetwork
@@ -69,7 +70,7 @@ def get_transaction_pool():
     Retrieve the current transaction pool.
     """
     try:
-        transaction_pool = blockchain.pending_transactions
+        transaction_pool = node.blockchain.pending_transactions
         return jsonify({"transaction_pool": transaction_pool}), 200
     except Exception as e:
         logger.error(f"Error in get_transaction_pool: {str(e)}")
@@ -278,6 +279,192 @@ def aggregate_entropy():
     except Exception as e:
         node.logger.error(f"Error in aggregate_entropy: {str(e)}")
         return jsonify({"error": "An error occurred"}), 500
+
+@app.route('/propose_block', methods=['POST'])
+def propose_block():
+    """
+    Endpoint for the leader to propose a new block.
+    """
+    if not node.is_leader:
+        node.logger.error(f"Node {node.node_id} is not the leader. Leader ID: {node.leader_id}")
+        return jsonify({"error": "Only the leader can propose a block"}), 403
+
+    try:
+        aggregated_entropy = node.blockchain.aggregate_entropy()
+        new_block = node.propose_block(aggregated_entropy)
+
+        if new_block:
+            # Log the block details
+            node.logger.info(f"Proposing block: {new_block.__dict__}")
+
+            # Broadcast the proposed block to all nodes
+            if node.p2p_network:
+                node.p2p_network.broadcast_message(
+                    "propose_block",
+                    {
+                        "index": new_block.index,
+                        "previous_hash": new_block.previous_hash,
+                        "transactions": new_block.transactions,
+                        "entropy": new_block.entropy,
+                        "timestamp": new_block.timestamp,
+                        "hash": new_block.hash,
+                        "block_data": new_block.__dict__,  # Include the full block data
+                    }
+                )
+                # Cache the proposed block in the leader node for majority validation
+                node.blockchain.pending_block = new_block
+                return jsonify({"message": "Block proposed and broadcasted", "block": new_block.__dict__}), 200
+        else:
+            return jsonify({"error": "Failed to propose a block"}), 500
+    except Exception as e:
+        node.logger.error(f"Error in propose_block: {str(e)}")
+        return jsonify({"error": "Failed to propose a block"}), 500
+
+@app.route('/receive_proposed_block', methods=['POST'])
+def receive_proposed_block():
+    """
+    Follower nodes receive and validate a block proposed by the leader.
+    """
+    try:
+        data = request.json
+        node.logger.info(f"Received proposed block: {data}")
+
+        # Extract and reconstruct the proposed block
+        proposed_block = Block(
+            index=data["index"],
+            previous_hash=data["previous_hash"],
+            transactions=data["transactions"],
+            entropy=data["entropy"],
+            timestamp=data["timestamp"],
+        )
+        proposed_block.hash = data["hash"]
+
+        # Cache the received block for validation
+        node.blockchain.pending_block = proposed_block
+
+        # Validate the block
+        is_valid = node.validate_block(proposed_block)
+
+        # Respond to the leader with validation result
+        response_status = "valid" if is_valid else "invalid"
+        node.p2p_network.broadcast_message(
+            "block_validation",
+            {
+                "block_index": proposed_block.index,
+                "node_id": node.node_id,
+                "status": response_status,
+                "block_data": proposed_block.__dict__,  # Send block_data in the response
+            }
+        )
+
+        return jsonify({"message": "Proposed block processed", "status": response_status}), 200
+    except Exception as e:
+        node.logger.error(f"Error in receive_proposed_block: {str(e)}")
+        return jsonify({"error": "Failed to process proposed block"}), 500
+
+@app.route('/validate_block', methods=['POST'])
+def validate_block():
+    """
+    Endpoint to receive validation responses from other nodes.
+    Ensures that each block is validated only once.
+    """
+    try:
+        data = request.json
+        block_index = data.get("block_index")
+        node_id = data.get("node_id")
+        status = data.get("status")
+        block_data = data.get("block_data")  # Ensure block_data is retrieved
+
+        if not block_index or not node_id or not status:
+            node.logger.error(f"Invalid validation payload: {data}")
+            return jsonify({"error": "Missing required fields"}), 400
+
+        if not block_data:
+            node.logger.error(f"Block data missing in payload: {data}")
+            return jsonify({"error": "Block data missing"}), 400
+
+        node.logger.info(f"Validation response received: Block {block_index}, Node {node_id}, Status {status}")
+
+        # Ensure that validation happens only once for the given block
+        if not hasattr(node, "processed_blocks"):
+            node.processed_blocks = set()
+        
+        # Check if this block has already been processed
+        if block_index in node.processed_blocks:
+            node.logger.info(f"Block {block_index} has already been validated and processed. Ignoring.")
+            return jsonify({"message": "Block already processed"}), 200
+
+        # Track validation responses
+        if not hasattr(node, "validation_responses"):
+            node.validation_responses = {}
+        if block_index not in node.validation_responses:
+            node.validation_responses[block_index] = []
+        node.validation_responses[block_index].append((status, block_data))  # Track status and block data
+
+        # Check if majority validates
+        valid_responses = [
+            response for response in node.validation_responses[block_index] if response[0] == "valid"
+        ]
+        invalid_count = len([
+            response for response in node.validation_responses[block_index] if response[0] == "invalid"
+        ])
+        total_nodes = len(node.p2p_network.peers) + 1  # Including the leader
+
+        if len(valid_responses) > total_nodes // 2:
+            # Retrieve block data from one of the valid responses
+            block_data = valid_responses[0][1]
+            block = Block(
+                index=block_data["index"],
+                previous_hash=block_data["previous_hash"],
+                transactions=block_data["transactions"],
+                entropy=block_data["entropy"],
+                timestamp=block_data["timestamp"],
+            )
+            block.hash = block_data["hash"]  # Set the hash explicitly
+
+            if node.blockchain.add_block(block):  # Use add_block method
+                node.logger.info(f"Block successfully added to the chain: {block}")
+                node.processed_blocks.add(block_index)  # Mark the block as processed
+                del node.validation_responses[block_index]  # Clean up after success
+                node.p2p_network.broadcast_message("blockchain_update", block.__dict__)
+
+                return jsonify({"message": "Block added to blockchain"}), 200
+            else:
+                node.logger.error(f"Failed to add block to blockchain: {block}")
+                return jsonify({"error": "Block validation succeeded but failed to add to chain"}), 500
+        elif invalid_count > total_nodes // 2:
+            node.logger.warning(f"Block {block_index} rejected by majority.")
+            del node.validation_responses[block_index]
+            node.processed_blocks.add(block_index)  # Mark the block as processed
+            return jsonify({"message": "Block rejected"}), 200
+
+        return jsonify({"message": "Waiting for more responses"}), 200
+    except Exception as e:
+        node.logger.error(f"Error in validate_block: {str(e)}")
+        return jsonify({"error": "Failed to process validation"}), 500
+
+@app.route('/blockchain_update', methods=['POST'])
+def blockchain_update():
+    try:
+        data = request.json
+        block = Block(
+            index=data["index"],
+            previous_hash=data["previous_hash"],
+            transactions=data["transactions"],
+            entropy=data["entropy"],
+            timestamp=data["timestamp"],
+        )
+        block.hash = data["hash"]
+
+        if node.blockchain.add_block(block):
+            node.logger.info(f"Blockchain updated with block {block.index}.")
+            return jsonify({"message": "Blockchain updated"}), 200
+        else:
+            node.logger.warning(f"Failed to update blockchain with block {block.index}.")
+            return jsonify({"error": "Failed to update blockchain"}), 500
+    except Exception as e:
+        node.logger.error(f"Error in blockchain_update: {str(e)}")
+        return jsonify({"error": "Failed to update blockchain"}), 500
 
 
 if __name__ == "__main__":

@@ -84,13 +84,35 @@ class Blockchain:
             self.logger.info(f"Removed {len(transactions)} transactions from the pool.")
 
     def add_block(self, block):
-        """
-        Add a block to the chain after validation.
-        """
+        # Ensure the block is not already in the blockchain
+        if any(b.hash == block.hash for b in self.chain):
+            self.logger.warning(f"Block {block.index} with hash {block.hash} already exists in the blockchain.")
+            return False
+
+        # Ensure the block's previous hash matches the last block
+        if block.previous_hash != self.chain[-1].hash:
+            self.logger.error(f"Block {block.index} rejected: Previous hash mismatch.")
+            return False
+
+        # Ensure the block's index is valid
+        if block.index != len(self.chain):
+            self.logger.error(f"Block {block.index} rejected: Invalid index.")
+            return False
+
+        # Ensure the block hash is correct
+        if block.hash != block.compute_hash():
+            self.logger.error(f"Block {block.index} rejected: Hash mismatch.")
+            return False
+
+        # Add the block to the chain
+        self.pending_transactions = [
+                txn for txn in self.pending_transactions if txn not in block.transactions
+            ]
+            
         self.chain.append(block)
-        self.remove_transactions_from_pool(block.transactions)
-        if self.logger:
-            self.logger.info(f"Block {block.index} added to the blockchain.")
+        self.logger.info(f"Block {block.index} successfully added to the blockchain.")
+        return True
+
 
     def aggregate_entropy(self):
         """
